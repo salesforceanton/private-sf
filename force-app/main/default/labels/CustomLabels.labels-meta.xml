@@ -16,4 +16,12 @@
         <shortDescription>LOOKUP REQUIRED FIELD ERROR MESSAGE</shortDescription>
         <value>Complete this field</value>
     </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>MAKE_A_TRIP_PAGE_TITLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>MAKE A TRIP PAGE TITLE</shortDescription>
+        <value>Make A Trip</value>
+    </labels>
 </CustomLabels>

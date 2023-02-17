@@ -1,0 +1,17 @@
+* {
+    font-family: 'Roboto';
+    color: rgb(68, 68, 68);
+}
+.content-wrapper {
+    width: 100%
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+}
+
+.page-header img {
+    width: 4rem;
+    height: 4rem;
+}
