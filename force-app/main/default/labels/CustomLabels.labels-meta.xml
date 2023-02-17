@@ -17,11 +17,19 @@
         <value>Complete this field</value>
     </labels>
     <labels>
+        <categories>Common</categories>
+        <fullName>CLOSE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CLOSE BUTTON LABEL</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
         <categories>MakeATrip</categories>
         <fullName>MAKE_A_TRIP_PAGE_TITLE</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>MAKE A TRIP PAGE TITLE</shortDescription>
-        <value>Make A Trip</value>
+        <value>Make a Trip</value>
     </labels>
 </CustomLabels>

@@ -1,0 +1,42 @@
+.slds-modal__container {
+    transition:
+        transform var(--lwc-durationQuickly, 0.1s) linear,
+        opacity var(--lwc-durationQuickly, 0.1s) linear,
+        width 0.3s linear;
+}
+
+section.slds-modal, div.slds-modal__container {
+    pointer-events: none;
+}
+
+div.slds-modal__container > * {
+    pointer-events: all;
+}
+
+@media (min-width: 768px) {
+    .slds-modal__container {
+        max-width: calc(100% - 4rem);
+        min-width: 30rem;
+    }
+    .modal_small > .slds-modal__container {
+        width: 30rem;
+    }
+    .modal_medium > .slds-modal__container {
+        width: 45rem;
+    }
+    .modal_large > .slds-modal__container {
+        width: 60rem;
+    }
+    .modal_x-large > .slds-modal__container {
+        width: 80rem;
+    }
+    .modal_full > .slds-modal__container {
+        width: calc(100% - 4rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .slds-modal__container {
+        margin: 0 0.5rem;
+    }
+}
