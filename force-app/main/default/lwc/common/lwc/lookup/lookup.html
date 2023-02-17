@@ -1,0 +1,92 @@
+<template>
+    <div class={wrapperConatinerClass}>
+        <label class="slds-form-element__label" for="combobox-id-1">
+            <abbr if:true={required} class="slds-required" title="required">* </abbr>{label}
+        </label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container" onblur={handleBlurLookup}>
+                <template if:false={value}>
+                    <div 
+                        class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
+                        aria-expanded="true"
+                        aria-haspopup="listbox" 
+                        role="combobox"
+                    >
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right combobox-id-1" role="none">
+                            <input 
+                                id="combobox-id-1"
+                                required
+                                type="text"
+                                class="slds-input"                          
+                                aria-activedescendant="option1"
+                                aria-autocomplete="list" 
+                                aria-controls="listbox-id-1"
+                                aria-describedby="error-message"
+                                aria-invalid="true"
+                                autocomplete="off" 
+                                role="textbox" 
+                                placeholder={labels.searchPlacehoder}
+                                onkeyup={handleKeyUp}
+                            />                           
+                            <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                                <lightning-icon icon-name="utility:search" size="x-small"></lightning-icon>
+                            </span>
+                        </div>
+                        <div if:true={hasError} class="slds-form-element__help">{labels.requiredFieldErrorMessage}.</div>
+                        <template if:true={records}>
+                            <div 
+                                id="listbox-id-1" role="listbox"
+                                class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+                            >
+                                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                    <template for:each={records} for:item="record">
+                                        <li role="presentation"
+                                            key={record.id}
+                                            class="slds-listbox__item"
+                                        >                            
+                                            <div 
+                                                aria-selected="true" 
+                                                role="option" 
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                            >
+                                                <div class="dropdown-entity"
+                                                    data-id={record.id}
+                                                    onclick={handleSelect}
+                                                >
+                                                    <div class="icon-container">
+                                                        <lightning-icon icon-name="standard:account" size="medium" data-id={record.id}></lightning-icon>
+                                                    </div>
+                                                    <div class="dropdown-entity-info">
+                                                        <p>{record.name}</p>
+                                                        <p>{record.singleLine}</p> 
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </template>                
+                    </div>
+                </template>
+                <template if:true={value}>
+                    <div class="slds-theme_default selected-wrapper">
+                        <div class="selected">
+                            <div class="selected-info slds-var-p-around_xx-small">
+                                <div class="icon-container">
+                                    <lightning-icon icon-name="standard:account" size="x-small"></lightning-icon>
+                                </div>
+                                <div>
+                                    <p>{selectedItemName}</p>
+                                </div>                                  
+                            </div>
+                            <div class="icon-container" onclick={handleRemove}>
+                                    <lightning-icon class="clickable" icon-name="utility:close" size="xx-small"></lightning-icon>
+                            </div>
+                        </div>
+                    </div>                
+                </template>        
+            </div>
+        </div>
+      </div>    
+</template>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <categories>Common</categories>
+        <fullName>LOOKUP_SEARCH_PLACEHOLDER</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LOOKUP SEARCH PLACEHOLDER</shortDescription>
+        <value>Search...</value>
+    </labels>
+    <labels>
+        <categories>Common</categories>
+        <fullName>REQUIRED_FIELD_ERROR_MESSAGE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LOOKUP REQUIRED FIELD ERROR MESSAGE</shortDescription>
+        <value>Complete this field</value>
+    </labels>
+</CustomLabels>
