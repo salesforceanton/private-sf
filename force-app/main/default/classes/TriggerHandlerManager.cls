@@ -1,5 +1,6 @@
 public class TriggerHandlerManager {
     private Map<SObjectType, Type> handlerByClassNameMap = new Map<SObjectType, Type>{
+        Flight__c.SObjectType => FlightTriggerHandler.class
     };
 
     private TriggerHandlerManager() {
