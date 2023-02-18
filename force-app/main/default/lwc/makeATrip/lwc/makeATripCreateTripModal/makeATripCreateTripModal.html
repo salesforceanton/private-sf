@@ -1,0 +1,84 @@
+<template>
+    <c-modal 
+        size="medium"
+        onmodalclose={handleClose}
+        hide-close-button
+    >
+        <div slot="header" class="page-header">
+            <div class="image-container">
+                <img src={headerImageSrc}/>
+            </div>
+            <div class="title"> 
+                <h2 class="slds-text-heading_large slds-hyphenate">{labels.modalHeaderTitle}</h2>
+            </div>
+            <div></div>
+        </div>
+        <div>
+            <lightning-record-edit-form
+                object-api-name="Trip__c"
+                record-id={recordId}
+                onsuccess={handleClose}
+                onload={handleFormLoad}
+            >
+                <lightning-layout multiple-rows class="slds-var-m-around_medium">
+                    <lightning-layout-item size="6">
+                        <lightning-input-field 
+                            field-name="Name" 
+                            value={tripName}
+                            disabled
+                        ></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <lightning-input-field 
+                            field-name="Contact__c"
+                            data-field-name="Contact__c"
+                            onchange={handleFormFieldChange}
+                        ></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <lightning-input-field 
+                            field-name="Flight__c"
+                            value={flightFieldValue}
+                            disabled
+                        ></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <lightning-input-field 
+                            field-name="PreferredTripStart__c"
+                            data-field-name="PreferredTripStart__c"
+                            onchange={handleFormFieldChange}
+                        ></lightning-input-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-edit-form>
+            <div class="flights-table slds-var-m-vertical_medium slds-is-relative">
+                <lightning-spinner if:true={isFetching} size="medium" variant="brand"></lightning-spinner>
+                <h2 class="slds-text-heading_medium slds-hyphenate">{labels.flightsTableHeader}</h2>
+                <lightning-datatable
+                    data={flights}
+                    class="slds-var-m-around_small"
+                    style="max-height: 300px;"
+                    columns={columns}
+                    onrowaction={handleRowAction}
+                    key-field="id"
+                    hide-checkbox-column
+                >
+                </lightning-datatable>
+                <h2 class="slds-text-heading_small slds-hyphenate">{flightsTableMessage}</h2>
+            </div>
+        </div>
+        <div slot="footer" class="footer-buttons-block">
+            <lightning-button 
+                variant="brand-outline"
+                label={labels.cancelButtonLabel}
+                onclick={handleClose}
+                class="slds-var-m-right_x-small"
+            ></lightning-button>
+            <lightning-button 
+                variant="brand"
+                label={labels.saveButtonLabel}
+                onclick={handleSaveFlight}
+            ></lightning-button>
+        </div>
+    </c-modal>
+</template>

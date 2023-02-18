@@ -12,7 +12,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>FLIGHT_SEARCH</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Flight Search</label>
             </value>
             <value>

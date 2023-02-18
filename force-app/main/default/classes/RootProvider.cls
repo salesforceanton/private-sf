@@ -1,7 +1,7 @@
 global with sharing class RootProvider {
     @AuraEnabled
-    global static String invoke(String input) {
-        return run((InvokeApexRequest) JSON.deserialize(input, InvokeApexRequest.class)).toJson();
+    global static String invoke(String request) {
+        return run((InvokeApexRequest) JSON.deserialize(request, InvokeApexRequest.class)).toJson();
     }
 
     private static InvokeApexResponse run(InvokeApexRequest request) {

@@ -1,10 +1,72 @@
 <template>
-    <lightning-card>
-        <lightning-layout multiple-rows class="content-wrapper">
+    <div class="content-wrapper">
+        <lightning-layout multiple-rows>
             <lightning-layout-item size="12" class="page-header">
-                <img src={headerImageSrc} class="slds-var-m-horizontal_small"/>
-                <h2 class="slds-text-heading_large slds-hyphenate">{labels.pageTitle}</h2>
+                <div class="title">
+                    <img src={headerImageSrc} class="slds-var-m-horizontal_small"/>
+                    <h2 class="slds-text-heading_large slds-hyphenate">{labels.pageTitle}</h2>
+                </div>
+                <div class="slds-var-p-horizontal_small">
+                    <lightning-button 
+                        variant="brand-outline"
+                        label={labels.createTripButtonLabel}
+                        onclick={handleOpenTripModal}
+                        class="slds-var-m-right_x-small"
+                    ></lightning-button>
+                    <lightning-button 
+                        variant="brand-outline"
+                        label={labels.createFlightButtonLabel}
+                        onclick={handleNewFlight}
+                    ></lightning-button>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" class="trips-section slds-is-relative">
+                <div style={backgroundStyle}>
+                    <lightning-spinner if:true={isFetching} size="medium" variant="brand"></lightning-spinner>
+                    <div class="data-block">
+                        <div class="trip-table slds-var-m-vertical_large">
+                            <div class="title slds-var-m-around_small">
+                                <img src={inProcessTableHeaderImageSrc} class="slds-var-m-horizontal_small"/>
+                                <h2 class="slds-text-heading_large slds-hyphenate">{labels.inProcessTableTitle}</h2>
+                            </div>
+                            <lightning-datatable 
+                                data={proceedTrips}
+                                columns={proceedColumns}
+                                onrowaction={handleRowAction}
+                                key-field="id"
+                                class="slds-var-m-around_small"
+                                style="max-height: 300px;"
+                                hide-checkbox-column
+                            >
+                            </lightning-datatable>
+                        </div>
+                        <div class="trip-table slds-var-m-vertical_large">
+                            <div class="title slds-var-m-around_small">
+                                <img src={bookedTableHeaderImageSrc} class="slds-var-m-horizontal_small"/>
+                                <h2 class="slds-text-heading_large slds-hyphenate">{labels.bookedTableTitle}</h2>
+                            </div>
+                            <lightning-datatable
+                                data={bookedTrips}
+                                class="slds-var-m-around_small"
+                                style="max-height: 300px;"
+                                columns={bookedColumns}
+                                key-field="id"
+                                hide-checkbox-column
+                            >
+                            </lightning-datatable>
+                        </div>
+                    </div>
+                </div>
             </lightning-layout-item>
         </lightning-layout>
-    </lightning-card>
+    </div>
+    <c-make-a-trip-create-flight-modal
+        if:true={showCreateFlightModal}
+        onmodalclose={handleCloseCreateFlightModal}
+    ></c-make-a-trip-create-flight-modal>
+    <c-make-a-trip-create-trip-modal
+        if:true={showCreateTripModal}
+        record-id={proceedTripId}
+        onmodalclose={handleCloseCreateTripModal}
+    ></c-make-a-trip-create-trip-modal>
 </template>

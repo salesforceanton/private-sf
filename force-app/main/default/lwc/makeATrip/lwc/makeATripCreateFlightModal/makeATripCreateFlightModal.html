@@ -1,0 +1,53 @@
+<template>
+    <c-modal 
+        size="medium"
+        onmodalclose={handleClose}
+        hide-close-button
+    >
+        <div slot="header" class="page-header">
+            <div class="image-container">
+                <img src={headerImageSrc}/>
+            </div>
+            <div class="title"> 
+                <h2 class="slds-text-heading_large slds-hyphenate">{labels.modalHeaderTitle}</h2>
+                <div class="title-tooltip">
+                    <lightning-helptext content={labels.newFlightHelptext}></lightning-helptext>
+                </div>
+            </div>
+            <div></div>
+        </div>
+        <div class="slds-is-relative">
+            <lightning-spinner if:true={isFetching} size="medium" variant="brand"></lightning-spinner>
+            <lightning-record-edit-form
+                object-api-name="Flight__c"
+                onload={handleFormLoad}
+                onsuccess={handleClose}
+            >
+                <lightning-layout multiple-rows class="form-content slds-var-m-vertical_medium">
+                    <lightning-layout-item size="6" class="slds-var-m-horizontal_medium">
+                        <lightning-input-field field-name="Start__c"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" class="slds-var-m-horizontal_medium">
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6" class="slds-var-m-horizontal_medium">
+                        <lightning-input-field field-name="Capacity__c"></lightning-input-field>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-edit-form>
+        </div>
+        <div slot="footer" class="footer-buttons-block">
+            <lightning-button 
+                variant="brand-outline"
+                label={labels.cancelButtonLabel}
+                onclick={handleClose}
+                class="slds-var-m-right_x-small"
+            ></lightning-button>
+            <lightning-button 
+                variant="brand"
+                label={labels.saveButtonLabel}
+                onclick={handleSaveFlight}
+            ></lightning-button>
+        </div>
+    </c-modal>
+</template>

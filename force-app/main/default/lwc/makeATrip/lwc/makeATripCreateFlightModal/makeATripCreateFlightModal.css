@@ -1,0 +1,35 @@
+.footer-buttons-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.page-header {
+    display: grid;
+    grid-template-columns: 25% 50% 20%;
+}
+
+.page-header img {
+    width: 5rem;
+}
+
+.title, .form-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: "Roboto";
+}
+
+.image-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.title-tooltip {
+   margin: 0.5rem 0.5rem 2rem 0.25rem
+}
+

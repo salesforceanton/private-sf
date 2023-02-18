@@ -25,11 +25,91 @@
         <value>Close</value>
     </labels>
     <labels>
+        <categories>Common</categories>
+        <fullName>SAVE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVE BUTTON LABEL</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <categories>Common</categories>
+        <fullName>CANCEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CANCEL BUTTON LABEL</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
         <categories>MakeATrip</categories>
         <fullName>MAKE_A_TRIP_PAGE_TITLE</fullName>
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>MAKE A TRIP PAGE TITLE</shortDescription>
         <value>Make a Trip</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>CREATE_TRIP_BUTTON_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CREATE TRIP BUTTON LABEL</shortDescription>
+        <value>Make a Trip</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>CREATE_NEW_FLIGHT_BUTTON_LABEL</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CREATE NEW FLIGHT BUTTON LABEL</shortDescription>
+        <value>Create Flight</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>CREATE_NEW_FLIGHT_MODAL_TITLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CREATE NEW FLIGHT MODAL TITLE</shortDescription>
+        <value>Make a New Flight</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>CREATE_NEW_FLIGHT_HELPTEXT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CREATE NEW FLIGHT HELPTEXT</shortDescription>
+        <value>When you make a new Flights - tikets for this will be automatically created.</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>IN_PROCESS_TRIPS_TABLE_TITLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IN PROCESS TABLE TITLE</shortDescription>
+        <value>In Process...</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>BOOKED_TRIPS_TABLE_TITLE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>IN PROCESS TABLE TITLE</shortDescription>
+        <value>Booked!</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>FLIGHTS_TABLE_HEADER</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FLIGHTS TABLE HEADER</shortDescription>
+        <value>Available Flights</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>FLIGHTS_TABLE_EMPTY_MESSAGE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FLIGHTS TABLE EMPTY MESSAGE</shortDescription>
+        <value>No Available Flights for selected Preferred Date.</value>
     </labels>
 </CustomLabels>
