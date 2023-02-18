@@ -2,10 +2,10 @@ import { LightningElement, api, track, wire } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import HEADER_IMAGE_SRC from '@salesforce/resourceUrl/makeATripModarHeaderLogo';
 
-import { ModalEvents } from 'c/modalEvents';
+import { ModalEvents, errorToast, successToast } from 'c/modalEvents';
 
 import { fligtsColumns } from './constants';
-import { getAvailableFlights } from './service';
+import { getAvailableFlights, saveTrip } from './service';
 import * as _labels from './labels';
 
 import CONTACT_FIELD_NAME from '@salesforce/schema/Trip__c.Contact__c';
@@ -55,9 +55,19 @@ export default class MakeATripCreateTripModal extends LightningElement {
     }
 
     handleFormLoad(e) {
-        const { record }= e.detail;
         this.stopSpinner();
-        this.applyRecord(record);
+        const formRecord = this.recieveFormRecord(e.detail);
+        this.applyRecord(formRecord);
+        this.setClient();
+    }
+
+    recieveFormRecord(formData) {
+        const { record, records } = formData;
+        return record || records[this.recordId];
+    }
+
+    setClient() {
+        this.clientId = this.record[CONTACT_FIELD_NAME.fieldApiName];
     }
 
     applyRecord(record) {
@@ -104,6 +114,35 @@ export default class MakeATripCreateTripModal extends LightningElement {
             .finally(() => this.stopSpinner());
     }
 
+    handleSaveTrip() {
+        const { clientName } = this;
+        const record = this.prepareRecordToSave();
+
+        const validity = Array.from(this.template.querySelectorAll('lightning-input-field'))
+            .map((i) => i.reportValidity())
+            .some((i) => !!i);
+        
+        if (!validity) {
+            return;
+        }
+
+        this.isFetching = true;
+        saveTrip({ record, clientName })
+            .then(() => this.handleSaveTripSuccess())
+            .catch((e) => this.handleError(e))
+            .finally(() => this.stopSpinner());
+    }
+
+    prepareRecordToSave() {
+        return {
+            Id: this.recordId,
+            Name: this.tripName,
+            [CONTACT_FIELD_NAME.fieldApiName]: this.record[CONTACT_FIELD_NAME.fieldApiName],
+            [PREFERRED_DATE_FIELD_NAME.fieldApiName]: this.record[PREFERRED_DATE_FIELD_NAME.fieldApiName],
+            [FLIGHT_FIELD_NAME.fieldApiName]: this.record[FLIGHT_FIELD_NAME.fieldApiName]
+        }
+    }
+
     handleGetFlights(result) {
         this.flights = result;
     }
@@ -112,15 +151,17 @@ export default class MakeATripCreateTripModal extends LightningElement {
         this.isFetching = false;
     }
 
+    handleSaveTripSuccess() {
+        this.dispatchEvent(successToast(this.labels.saveTripSuccessMessage));
+        this.handleClose();
+    }
+
     handleError(e) {
-        console.error(e);
+        console.error(JSON.stringify(e));
+        this.dispatchEvent(errorToast(e));
     }
 
     handleClose() {
         this._events.dispatchClose({ bubbles: true, composed: true, cancelable: true });
-    }
-
-    handleSaveFlight() {
-        this.template.querySelector('lightning-record-edit-form').submit();
     }
 }

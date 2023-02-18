@@ -70,7 +70,8 @@ export default class MakeATripMainPage extends LightningElement {
 
 
     handleError(e) {
-        console.error(e);
+        console.error(JSON.stringify(e));
+        this.dispatchEvent(errorToast(e));
     }
 
     handleNewFlight() {

@@ -10,4 +10,14 @@ const getAvailableFlights = (parameters) => {
     });
 };
 
-export { getAvailableFlights };
+const saveTrip = (parameters) => {
+    return callApex({
+        className: CLASS_NAME,
+        methodName: 'saveTrip',
+        parameters
+    });
+};
+
+export { 
+    getAvailableFlights, saveTrip
+};

@@ -41,6 +41,30 @@
         <value>Cancel</value>
     </labels>
     <labels>
+        <categories>Common</categories>
+        <fullName>NOT_FOUND_DATA</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NOT FOUND DATA REST ERROR</shortDescription>
+        <value>No found data</value>
+    </labels>
+    <labels>
+        <categories>Common</categories>
+        <fullName>INVALID_INPUT</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INVALID INPUT REST ERROR</shortDescription>
+        <value>Invalid input</value>
+    </labels>
+    <labels>
+        <categories>Common</categories>
+        <fullName>INTERNAL_SERVER_ERROR</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INTERNAL SERVER ERROR</shortDescription>
+        <value>Internal Server Error</value>
+    </labels>
+    <labels>
         <categories>MakeATrip</categories>
         <fullName>MAKE_A_TRIP_PAGE_TITLE</fullName>
         <language>en_US</language>
@@ -111,5 +135,21 @@
         <protected>true</protected>
         <shortDescription>FLIGHTS TABLE EMPTY MESSAGE</shortDescription>
         <value>No Available Flights for selected Preferred Date.</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>SAVE_TRIP_SUCCESS_MESSAGE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SAVE TRIP SUCCESS MESSAGE</shortDescription>
+        <value>Trip saved successfully - Good Job!</value>
+    </labels>
+    <labels>
+        <categories>MakeATrip</categories>
+        <fullName>CREATE_FLIGHT_SUCCESS_MESSAGE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CREATE FLIGHT SUCCESS MESSAGE</shortDescription>
+        <value>Flight has been added - Good Job!</value>
     </labels>
 </CustomLabels>

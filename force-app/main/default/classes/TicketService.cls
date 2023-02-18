@@ -21,6 +21,18 @@ public inherited sharing class TicketService {
         insert tickets;
     }
 
+    public static Boolean bookTicket(BookTicketsRestService.BookRequest request) {
+        return new BookTicketsRestService().bookTicket(request);
+    }
+
+    public static Ticket__c getAvailableTicket(Id flightId) {
+        List<Ticket__c> freeTickets = TicketSelector.getAvailableTickets(flightId);
+        if (freeTickets.isEmpty()) {
+            throw new UserException('No available Tickets for this Flight.');
+        }
+        return freeTickets.get(0);
+    }
+
     private static List<Ticket__c> generateTickets(Flight__c flight) {
         List<Ticket__c> result = new List<Ticket__c>();
         for (Integer i = 1; i <= flight.Capacity__c; i++) {
@@ -29,7 +41,6 @@ public inherited sharing class TicketService {
                 Flight__c = flight.Id
             ));
         }
-        
         return result;
     }
 }

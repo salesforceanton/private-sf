@@ -11,6 +11,11 @@ public with sharing class MakeATripControllerProxy implements RootProvider.UiPro
                 when 'getAvailableFlights' {
                     return MakeATripController.getAvailableFlights((String) request.getParameters(String.class));
                 }
+                when 'saveTrip' {
+                    return MakeATripController.saveTrip((MakeATripBeans.SaveTripRequest) request.getParameters(
+                        MakeATripBeans.SaveTripRequest.class
+                    ));
+                }
                 when else {
                     throw new MakeATripControllerProxyException('[MakeATripControllerProxy]: Method doen`t exist');
                 }

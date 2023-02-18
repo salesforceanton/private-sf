@@ -4,6 +4,7 @@ import modalHeaderTitle from '@salesforce/label/c.CREATE_TRIP_BUTTON_LABEL';
 import newFlightHelptext from '@salesforce/label/c.CREATE_NEW_FLIGHT_HELPTEXT';
 import flightsTableHeader from '@salesforce/label/c.FLIGHTS_TABLE_HEADER';
 import emptyFlightsTableMessage from '@salesforce/label/c.FLIGHTS_TABLE_EMPTY_MESSAGE';
+import saveTripSuccessMessage from '@salesforce/label/c.SAVE_TRIP_SUCCESS_MESSAGE';
 
 export {
     cancelButtonLabel,
@@ -11,5 +12,6 @@ export {
     modalHeaderTitle,
     newFlightHelptext,
     flightsTableHeader,
-    emptyFlightsTableMessage
+    emptyFlightsTableMessage,
+    saveTripSuccessMessage
 }

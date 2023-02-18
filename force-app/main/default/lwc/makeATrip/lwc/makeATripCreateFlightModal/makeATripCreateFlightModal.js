@@ -1,7 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import HEADER_IMAGE_SRC from '@salesforce/resourceUrl/makeATripModarHeaderLogo';
 
-import { ModalEvents } from 'c/modalEvents';
+import { ModalEvents, successToast } from 'c/modalEvents';
 import * as _labels from './labels';
 
 export default class MakeATripCreateFlightModal extends LightningElement {
@@ -17,6 +17,11 @@ export default class MakeATripCreateFlightModal extends LightningElement {
 
     stopSpinner() {
         this.isFetching = false;
+    }
+
+    handleSaveFlightSuccess() {
+        this.dispatchEvent(successToast(this.labels.saveFlightSuccessMessage));
+        this.handleClose();
     }
 
     handleClose() {

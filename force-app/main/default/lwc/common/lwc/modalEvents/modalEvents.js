@@ -1,3 +1,4 @@
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 class ModalEvents {
     constructor(context) {
         this.dispatchEvent = context.dispatchEvent.bind(context);
@@ -11,4 +12,18 @@ class ModalEvents {
     }
 }
 
-export { ModalEvents };
+const successToast = (message) => 
+    new ShowToastEvent({
+        title: 'Success',
+        message,
+        variant: 'success'
+    });
+
+const errorToast = (message) => 
+    new ShowToastEvent({
+        title: 'Error',
+        message,
+        variant: 'error'
+    });
+
+export { ModalEvents, successToast, errorToast };

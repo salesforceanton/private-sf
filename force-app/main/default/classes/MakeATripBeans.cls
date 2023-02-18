@@ -101,4 +101,22 @@ public class MakeATripBeans {
             this.start = input;
         }
     }
+
+    public class SaveTripRequest {
+        private Trip__c record;
+        private String clientName;
+
+        public Trip__c getRecord() {
+            return this.record;
+        }
+        public void setRecord(Trip__c input) {
+            this.record = input;
+        }
+        public String getClientName() {
+            return this.clientName;
+        }
+        public void setClientName(String input) {
+            this.clientName = input;
+        }
+    }
 }
